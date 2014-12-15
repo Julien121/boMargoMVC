@@ -18,7 +18,7 @@
                                                     <td><?php echo $unThemes->nomTheme; ?></td>
                                                     <td><?php echo $unThemes->durreTheme; ?></td>
                                                     <td><?php echo $unThemes->nbMots; ?></td>
-                                                    <td ><a href='gestionMots.html' class="btn btn-default btn-block">GERER MOTS</a></</td>
+                                                    <td ><a href='index.php?uc=gestionMots' class="btn btn-default btn-block">GERER MOTS</a></</td>
                                                     <td>
                                                         <div class="row">
                                                                 <div class="col-md-6">
