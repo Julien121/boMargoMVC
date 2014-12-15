@@ -5,11 +5,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-if(!isset($_POST) || empty($_POST))
+if(isset($_POST) || !empty($_POST))
 {
-    include("vues/v_accueil.php");
+    if(isset($_POST["modif"]))
+    {
+        
+    }
+    if(isset($_POST["ajouter"]))
+    {
+        
+    }
 }
-else
-{
-    
-}
+$lesThemes = afficherThemes();
+include("vues/v_accueil.php");
