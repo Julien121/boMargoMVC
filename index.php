@@ -13,8 +13,12 @@ $uc = $_GET['uc'];
 switch($uc){
 	case 'index':
 	{
-		include("controleurs/c_gererThemes.php");break;
+            include("controleurs/c_gererThemes.php");break;
 	}
+        case 'gestionMots':
+        {
+            include("controleurs/c_gererMots.php");break;
+        }
 }
 include("vues/v_pied.php") ;
 ?>

@@ -9,24 +9,33 @@
                                             <th class="text-center" width="20%">GERER MOTS</th>
                                             <th class="text-center" width="40%">ACTIONS</th>
 					</tr>
-					<tr>
-                                            <td >FRUITS</td>
-                                            <td>10</td>
-                                            <td >24</td>
-                                            <td ><a href='gestionMots.html' class="btn btn-default btn-block">GERER MOTS</a></</td>
-                                            <td>
-                                                <div class="row">
-                                                        <div class="col-md-6">
-                                                                <a href='index.php?modif=1' class="btn btn-default btn-block col-md-6">MODIFIER</a>
+                                        <?php
+                                        foreach($lesThemes as $unThemes)
+                                        {
+                                            
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $unThemes->nomTheme; ?></td>
+                                                    <td><?php echo $unThemes->durreTheme; ?></td>
+                                                    <td><?php echo $unThemes->nbMots; ?></td>
+                                                    <td ><a href='index.php?uc=gestionMots' class="btn btn-default btn-block">GERER MOTS</a></</td>
+                                                    <td>
+                                                        <div class="row">
+                                                                <div class="col-md-6">
+                                                                        <a href='index.php?modif=<?php echo $unThemes->idTheme; ?>' class="btn btn-default btn-block col-md-6">MODIFIER</a>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                        <a href='index.php?sup=<?php echo $unThemes->idTheme; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
+                                                                </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                                <a href='index.php?sup=1' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
-                                                        </div>
-                                                </div>
-                                            </td>
-					</tr>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                        <!--
                                         <tr>    
-                                        <form method="POST" action="index.php">
+                                            <form method="POST" action="index.php">
                                                 <td><input type="text" class="form-control" id="inputMot" placeholder="FRUITS"></td>
                                                 <td><input type="text" class="form-control" id="inputMot" placeholder="10"></td>
                                                 <td >24</td>
@@ -40,23 +49,7 @@
                                                 </td>
                                             </form>
 					</tr>
-					<tr>
-                                            <td >ANIMAUX</td>
-                                            <td>10</td>
-                                            <td >15</td>
-                                            <td ><a href='gestionMots.html' class="btn btn-default btn-block">GERER MOTS</a></</td>
-                                            <td>
-                                                <div class="row">
-                                                        <div class="col-md-6">
-                                                                <a href='index.php?modif=1' class="btn btn-default btn-block col-md-6">MODIFIER</a>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                                <a href='index.php?sup=1' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
-                                                        </div>
-                                                </div>
-                                            </td>
-					</tr>
-                                        <tr>
+                                        -->
                                         <form method="POST" action="index.php">
                                                 <td><input type="text" class="form-control" id="inputMot" placeholder="Nom"></td>
                                                 <td></td>
