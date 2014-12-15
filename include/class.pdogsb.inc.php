@@ -16,10 +16,10 @@
  */
 
 class PdoGsb{   		
-      	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=boMargo';   		
-      	private static $user='root' ;    		
-      	private static $mdp='' ;	
+      	private static $serveur='sqlsrv:server=localhost';
+      	private static $bdd='DataBase=MARGO';   		
+      	private static $user='sa' ;    		
+      	private static $mdp='sql' ;	
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
@@ -46,5 +46,95 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
+        
+        public function afficherThemes()
+        {
+            $res = PdoGsb::$monPdo->prepare
+                    ("SELECT idTheme, nomTheme, dureeTheme COUNT(*)AS nbMots FROM THEMES T"
+                    . "INNER JOIN MOTS M"
+                    . "ON T.idTheme = M.idTheme"
+                    . "GROUP BY idTheme, nomTheme, dureeTheme"
+                    . "ORDER BY idTheme");
+            $res->execute();
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+        }
+        public function modifierThemes($idTheme,$nomTheme,$dureeTheme)
+        {
+            $res = PdoGsb::$monPdo->prepare
+                    ("UPDATE THEMES"
+                    . "SET nomTheme = :nomTheme"
+                    . "SET dureeTheme = :dureeTheme"
+                    . "WHERE idTheme = :idTheme");
+            $res->bindValue('idTheme', $idTheme);
+            $res->bindValue('nomTheme', $nomTheme);
+            $res->bindValue('dureeTheme', $dureeTheme);
+            $res->execute();
+        }
+        
+        public function ajouterThemes($nomTheme,$dureeTheme)
+        {
+            $res = PdoGsb::$monPdo->prepare
+                    ("INSERT INTO THEMES"
+                    . "VALUES('',:nomTheme,:dureeTheme)");
+            $res->bindValue('nomTheme', $nomTheme);
+            $res->bindValue('dureeTheme', $dureeTheme);
+            $res->execute();
+        }
+        
+        public function supprimerThemes($idTheme)
+        {
+            $res = PdoGsb::$monPdo->prepare
+                    ("DELETE MOTS WHERE idTheme = :idTheme");
+            $res->bindValue('idTheme', $idTheme);
+            $res->execute();
+            $res = NULL;
+            $res = PdoGsb::$monPdo->prepare
+                    ("DELETE THEMES WHERE idTheme = :idTheme");
+            $res->bindValue('idTheme', $idTheme);
+            $res->execute();
+        }
+        
+        public function afficherMots()
+        {
+            $res = PdoGsb::$monPdo->prepare("SELECT * FROM MOTS");
+            $res->execute();
+            $ligne = $res->fetch();
+            return $ligne;
+        }
+        
+        public function modifierMots($idMot,$contenuMot,$nbPointsMot,$dureeMot)
+        {
+            $res = PdoGsb::$monPdo->prepare
+                    ("UPDATE THEMES"
+                    . "SET contenuMot = :contenuMot"
+                    . "SET nbPointsMot = :nbPointsMot"
+                    . "SET dureeMot = :dureeMot"
+                    . "WHERE idMot = :idMot");
+            $res->bindValue('idMot', $idMot);
+            $res->bindValue('contenuMot', $contenuMot);
+            $res->bindValue('nbPointsMot', $nbPointsMot);
+            $res->bindValue('dureeMot', $dureeMot);
+            $res->execute();
+        }
+        
+        public function ajouterMots($contenuMot,$nbPointsMot,$dureeMot)
+        {
+            $res = PdoGsb::$monPdo->prepare
+                    ("INSERT INTO MOTS"
+                    . "VALUES('',:contenuMot,:nbPointsMot,:dureeMot)");
+            $res->bindValue('contenuMot', $contenuMot);
+            $res->bindValue('nbPointsMot', $nbPointsMot);
+            $res->bindValue('dureeMot', $dureeMot);
+            $res->execute();
+        }
+        
+        public function supprimerMots($idMot)
+        {
+            $res = PdoGsb::$monPdo->prepare
+                    ("DELETE MOTS WHERE idMot = :idMot");
+            $res->bindValue('idMot', $idMot);
+            $res->execute();
+        }
 }
 ?>
