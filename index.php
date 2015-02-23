@@ -1,11 +1,11 @@
 <?php
-/*
- * require_once("include/fct.inc.php");
- * require_once ("include/class.pdogsb.inc.php");
- */
+
+require_once("include/fct.inc.php");
+require_once ("include/class.pdogsb.inc.php");
+ 
 include("vues/v_entete.php") ;
 session_start();
-//$pdo = PdoGsb::getPdoGsb();
+$pdo = PdoGsb::getPdoGsb();
 if(!isset($_GET['uc'])){
      $_GET['uc'] = 'index';
 }

@@ -15,17 +15,17 @@
                                             
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $unThemes->nomTheme; ?></td>
-                                                    <td><?php echo $unThemes->durreTheme; ?></td>
-                                                    <td><?php echo $unThemes->nbMots; ?></td>
+                                                    <td><?php echo $unThemes['nomTheme']; ?></td>
+                                                    <td><?php echo $unThemes['dureeTheme']; ?></td>
+                                                    <td><?php echo $unThemes['nbMots']; ?></td>
                                                     <td ><a href='index.php?uc=gestionMots' class="btn btn-default btn-block">GERER MOTS</a></</td>
                                                     <td>
                                                         <div class="row">
                                                                 <div class="col-md-6">
-                                                                        <a href='index.php?modif=<?php echo $unThemes->idTheme; ?>' class="btn btn-default btn-block col-md-6">MODIFIER</a>
+                                                                        <a href='index.php?modif=<?php echo $unThemes['idTheme']; ?>' class="btn btn-default btn-block col-md-6">MODIFIER</a>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                        <a href='index.php?sup=<?php echo $unThemes->idTheme; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
+                                                                        <a href='index.php?sup=<?php echo $unThemes['idTheme']; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
                                                                 </div>
                                                         </div>
                                                     </td>

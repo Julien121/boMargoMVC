@@ -16,5 +16,5 @@ if(isset($_POST) || !empty($_POST))
         
     }
 }
-$lesThemes = afficherThemes();
+$lesThemes = $pdo->afficherThemes();
 include("vues/v_accueil.php");
