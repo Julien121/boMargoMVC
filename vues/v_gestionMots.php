@@ -67,7 +67,7 @@
 				</table>
 			</div>
             <div class="col-md-3 col-md-offset-1">
-                <a href='index.html' class="btn btn-default btn-block">LISTE DES THEMES</a>
+                <a href='index.php' class="btn btn-default btn-block">LISTE DES THEMES</a>
             </div>
 		</div>
 	</section>
