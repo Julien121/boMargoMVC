@@ -110,17 +110,17 @@ class PdoGsb{
             $res = PdoGsb::$monPdo->prepare("SELECT * FROM MOTS WHERE idThemeMot = :idTheme");
             $res->bindValue('idTheme', $idTheme);
             $res->execute();
-            $ligne = $res->fetch();
+            $ligne = $res->fetchAll();
             return $ligne;
         }
 
         public function modifierMots($idMot,$contenuMot,$nbPointsMot,$dureeMot)
         {
             $res = PdoGsb::$monPdo->prepare
-                    ("UPDATE THEMES "
-                    . "SET contenuMot = :contenuMot "
-                    . "SET nbPointsMot = :nbPointsMot "
-                    . "SET dureeMot = :dureeMot "
+                    ("UPDATE MOTS "
+                    . "SET contenuMot = :contenuMot, "
+                    . "nbPointsMot = :nbPointsMot, "
+                    . "dureeMot = :dureeMot "
                     . "WHERE idMot = :idMot ");
             $res->bindValue('idMot', $idMot);
             $res->bindValue('contenuMot', $contenuMot);
@@ -129,13 +129,14 @@ class PdoGsb{
             $res->execute();
         }
         
-        public function ajouterMots($contenuMot,$nbPointsMot,$dureeMot)
+        public function ajouterMots($contenuMot,$nbPointsMot,$idThemeMot,$dureeMot)
         {
             $res = PdoGsb::$monPdo->prepare
                     ("INSERT INTO MOTS "
-                    . "VALUES('',:contenuMot,:nbPointsMot,:dureeMot) ");
+                    . "VALUES(:contenuMot,:nbPointsMot,:idThemeMot,:dureeMot) ");
             $res->bindValue('contenuMot', $contenuMot);
             $res->bindValue('nbPointsMot', $nbPointsMot);
+            $res->bindValue('idThemeMot', $idThemeMot);
             $res->bindValue('dureeMot', $dureeMot);
             $res->execute();
         }

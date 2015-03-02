@@ -17,7 +17,8 @@
                                                     if(isset($_GET["modif"]) && $unMot['idMot'] == $_GET["modif"])
                                                     {
                                                         ?>
-                                                        <form method="POST" action="index.php">
+                                                        <form method="POST" action="index.php?uc=gestionMots">
+                                                            <input type="text" id='masque' name="idMot" class="form-control" value="<?php echo $unMot['idMot']; ?>">
                                                             <td><input type="text" name="contenuMot" class="form-control" value="<?php echo $unMot['contenuMot']; ?>"></td>
                                                             <td><input type="text" name="nbPointsMot" class="form-control" value="<?php echo $unMot['nbPointsMot']; ?>"></td>
                                                             <td><input type="text" name="dureeMot" class="form-control" value="<?php echo $unMot['dureeMot']; ?>"> </td>
@@ -55,14 +56,15 @@
                                         }
                                         ?>
 					<tr>
-						<form method="POST" action="#">
+						<form method="POST" action="index.php?uc=gestionMots">
+                           
 							<td><input type="text" class="form-control" id="inputMot" name="mot" placeholder="Mot"></td>
 							<td><input type="text" class="form-control" id="inputPoint" name="point" placeholder="Point"></td>
 							<td><input type="text" class="form-control" id="inputDuree" name="duree" placeholder="Duree"></td>
 							<td>
 								<div class="row">
                                                                     <div class="col-md-6 col-md-offset-3">
-                                                                            <a href='#' type="submit" name="ajouter" class="btn btn-primary btn-block">VALIDER</a>
+                                                                        <button type="submit" class="btn btn-default btn-block" name="ajouter">AJOUTER</button>
                                                                     </div>
 								</div>
 							</td>
