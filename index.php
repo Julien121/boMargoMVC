@@ -17,6 +17,14 @@ switch($uc){
 	}
         case 'gestionMots':
         {
+            if(isset($GET['idThemes']))
+            {
+                $_SESSION['idThemes'] = $_GET['idThemes']; 
+            }
+            else
+            {
+                header('Location: index.php');
+            }
             include("controleurs/c_gererMots.php");break;
         }
 }

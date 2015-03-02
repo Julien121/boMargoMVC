@@ -8,57 +8,61 @@
 						<th class="text-center" width="20%">DUREE</th>
 						<th class="text-center" width="40%">ACTIONS</th>
 					</tr>
-					<tr>
-						<td>FRUITS</td>
-						<td>24</td>
-						<td>24</td>
-						<td>
-							<div class="row">
-								<div class="col-md-6">
-									<a href='#' class="btn btn-default btn-block col-md-6">MODIFIER</a>
-								</div>
-								<div class="col-md-6">
-									<a href='#' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
-								</div>
-							</div>
-						</td>
-
-					</tr>
-					<tr>
-						<td>ANIMAUX</td>
-						<td>15</td>
-						<td>24</td>
-						<td>
-							<div class="row">
-								<div class="col-md-6">
-									<a href='#' class="btn btn-default btn-block col-md-6">MODIFIER</a>
-								</div>
-								<div class="col-md-6">
-									<a href='#' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
-								</div>
-							</div>
-					</td>
-					<tr>
-						<td><input type="text" class="form-control" id="inputMot" placeholder="ANIMAUX"></td>
-						<td><input type="text" class="form-control" id="inputMot" placeholder="15"></td>
-						<td><input type="text" class="form-control" id="inputMot" placeholder="24"></td>
-						<td>
-                                                    <div class="row">
-                                                        <div class="col-md-6 col-md-offset-3">
-                                                                <a href='#' type="submit" class="btn btn-primary btn-block">VALIDER</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-					</tr>
+                                            <?php
+                                                foreach($lesMots as $unMot)
+                                                {
+                                                ?>
+                                                <tr>
+                                                    <?php 
+                                                    if(isset($_GET["modif"]) && $unMot['idMot'] == $_GET["modif"])
+                                                    {
+                                                        ?>
+                                                        <form method="POST" action="index.php">
+                                                            <td><input type="text" name="contenuMot" class="form-control" value="<?php echo $unMot['contenuMot']; ?>"></td>
+                                                            <td><input type="text" name="nbPointsMot" class="form-control" value="<?php echo $unMot['nbPointsMot']; ?>"></td>
+                                                            <td><input type="text" name="dureeMot" class="form-control" value="<?php echo $unMot['dureeMot']; ?>"> </td>
+                                                            <td>
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-md-offset-3">
+                                                                            <button type="submit" name="modif" class="btn btn-primary btn-block">VALIDER</button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </form>
+                                                        <?php
+                                                    }
+                                                    else
+                                                    {
+                                                        ?>
+                                                        <td><?php echo $unMot['contenuMot']; ?></td>
+                                                        <td><?php echo $unMot['nbPointsMot']; ?></td>
+                                                        <td><?php echo $unMot['dureeMot']; ?></td>
+                                                        <td>
+                                                            <div class="row">
+                                                                    <div class="col-md-6">
+                                                                            <a href='index.php?uc=gestionMots&modif=<?php echo $unMot['idMot']; ?>' class="btn btn-default btn-block col-md-6">MODIFIER</a>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                            <a href='index.php?uc=gestionMots&sup=<?php echo $unMot['idMot']; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
+                                                                    </div>
+                                                            </div>
+                                                        </td>
+                                                        <?php 
+                                                    }
+                                                    ?>
+                                                </tr>
+                                            <?php
+                                        }
+                                        ?>
 					<tr>
 						<form method="POST" action="#">
-							<td><input type="text" class="form-control" id="inputMot" placeholder="Mot"></td>
-							<td><input type="text" class="form-control" id="inputPoint" placeholder="Point"></td>
-							<td><input type="text" class="form-control" id="inputDuree" placeholder="Duree"></td>
+							<td><input type="text" class="form-control" id="inputMot" name="mot" placeholder="Mot"></td>
+							<td><input type="text" class="form-control" id="inputPoint" name="point" placeholder="Point"></td>
+							<td><input type="text" class="form-control" id="inputDuree" name="duree" placeholder="Duree"></td>
 							<td>
 								<div class="row">
                                                                     <div class="col-md-6 col-md-offset-3">
-                                                                            <a href='#' type="submit" class="btn btn-primary btn-block">VALIDER</a>
+                                                                            <a href='#' type="submit" name="ajouter" class="btn btn-primary btn-block">VALIDER</a>
                                                                     </div>
 								</div>
 							</td>

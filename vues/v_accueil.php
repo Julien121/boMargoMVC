@@ -57,7 +57,8 @@
                                             <?php
                                         }
                                         ?>
-                                        <form method="POST" action="index.php">
+                                        <tr>
+                                            <form method="POST" action="index.php">
                                                 <td><input type="text" class="form-control" placeholder="Nom"></td>
                                                 <td></td>
                                                 <td></td>
