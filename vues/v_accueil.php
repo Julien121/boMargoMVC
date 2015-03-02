@@ -65,8 +65,6 @@
                                             <form method="POST" action="index.php">
                                                 <td><input type="text" class="form-control" placeholder="Nom" name="nom"></td>
                                                 <td><input type="text" class="form-control" placeholder="Duree" name="duree"></td>
-                                                <td><input type="text" class="form-control" placeholder="Nom"></td>
-                                                <td></td>
                                                 <td></td>
                                                 <td ><a href='#' class="btn btn-default btn-block" disabled>GERER MOTS</a></</td>
                                                 <td>
