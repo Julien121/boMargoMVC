@@ -7,3 +7,6 @@
  */
 include("vues/v_gestionMots.php");
 
+
+$lesMots = $pdo->afficherMots($_SESSION['idThemes']);
+include("vues/v_gestionMots.php");
