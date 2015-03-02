@@ -19,14 +19,18 @@
                                                     {
                                                         ?>
                                                         <form method="POST" action="index.php">
-                                                            <td><input type="text" class="form-control" value="<?php echo $unThemes['nomTheme']; ?>"></td>
-                                                            <td><input type="text" class="form-control" value="<?php echo $unThemes['dureeTheme']; ?>"></td>
+                                                            <input id="masque" name="id" type="text" class="form-control" value="<?php echo $unThemes['idTheme']; ?>">
+                                                            <td><input name="nom" type="text" class="form-control" value="<?php echo $unThemes['nomTheme']; ?>"></td>
+                                                            <td><input name="duree" type="text" class="form-control" value="<?php echo $unThemes['dureeTheme']; ?>"></td>
                                                             <td><?php echo $unThemes['nbMots']; ?></td>
                                                             <td ><a href='gestionMots.html' class="btn btn-default btn-block" disabled>GERER MOTS</a></</td>
                                                             <td>
                                                                 <div class="row">
-                                                                    <div class="col-md-6 col-md-offset-3">
-                                                                            <button type="submit" name="modif" class="btn btn-primary btn-block">VALIDER</button>
+                                                                    <div class="col-md-6">
+                                                                        <button type="submit" name="modif" class="btn btn-primary btn-block">VALIDER</button>
+                                                                    </div>
+                                                                    <div class = "col-md-6">
+                                                                        <button type="submit" name="annuler" class="btn btn-danger btn-block">ANNULER</button>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -39,7 +43,7 @@
                                                         <td><?php echo $unThemes['nomTheme']; ?></td>
                                                         <td><?php echo $unThemes['dureeTheme']; ?></td>
                                                         <td><?php echo $unThemes['nbMots']; ?></td>
-                                                        <td ><a href='index.php?uc=gestionMots' class="btn btn-default btn-block">GERER MOTS</a></</td>
+                                                        <td ><a href='index.php?uc=gestionMots&idTheme=<?php echo $unThemes['idTheme']; ?>' class="btn btn-default btn-block">GERER MOTS</a></</td>
                                                         <td>
                                                             <div class="row">
                                                                     <div class="col-md-6">
@@ -57,16 +61,17 @@
                                             <?php
                                         }
                                         ?>
-                                        <form method="POST" action="index.php">
-                                                <td><input type="text" class="form-control" placeholder="Nom"></td>
-                                                <td></td>
+                                        <tr>
+                                            <form method="POST" action="index.php">
+                                                <td><input type="text" class="form-control" placeholder="Nom" name="nom"></td>
+                                                <td><input type="text" class="form-control" placeholder="Duree" name="duree"></td>
                                                 <td></td>
                                                 <td ><a href='#' class="btn btn-default btn-block" disabled>GERER MOTS</a></</td>
                                                 <td>
                                                     <div class="row">
-                                                            <div class="col-md-6 col-md-offset-3">
-                                                                    <button type="submit" class="btn btn-default btn-block" name="ajouter">AJOUTER</button>
-                                                            </div>
+                                                        <div class="col-md-6 col-md-offset-3">
+                                                                <button type="submit" class="btn btn-default btn-block" name="ajouter">AJOUTER</button>
+                                                        </div>
                                                     </div>
                                                 </td>
                                             </form>
