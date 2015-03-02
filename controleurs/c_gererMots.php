@@ -8,7 +8,5 @@
 include("vues/v_gestionMots.php");
 
 
-if()
-
 $lesMots = $pdo->afficherMots($_SESSION['idThemes']);
 include("vues/v_gestionMots.php");
