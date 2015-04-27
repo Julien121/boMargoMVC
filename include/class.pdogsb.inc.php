@@ -33,20 +33,24 @@ class PdoGsb{
 	public function _destruct(){
 		PdoGsb::$monPdo = null;
 	}
-/**
- * Fonction statique qui crée l'unique instance de la classe
- 
- * Appel : $instancePdoGsb = PdoGsb::getPdoGsb();
- 
- * @return l'unique objet de la classe PdoGsb
- */
+	/**
+	 * Fonction statique qui crée l'unique instance de la classe
+	 
+	 * Appel : $instancePdoGsb = PdoGsb::getPdoGsb();
+	 
+	 * @return l'unique objet de la classe PdoGsb
+	 */
 	public  static function getPdoGsb(){
 		if(PdoGsb::$monPdoGsb==null){
 			PdoGsb::$monPdoGsb= new PdoGsb();
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
-        
+	/**
+	 * Fonction qui permet d'afficher thème
+	 *
+	 * @return La liste des thèmes
+	 */   
         public function afficherThemes()
         {
             $res = PdoGsb::$monPdo->prepare
@@ -61,7 +65,13 @@ class PdoGsb{
             return $lesLignes;
             
         }
-        
+	/**
+	 * Fonction qui permet modifier un thème
+	 *
+	 * @param $idTheme 
+	 * @param $nomTheme
+	 *
+	 */
         public function modifierThemesNom($idTheme,$nomTheme)
         {
             $res = PdoGsb::$monPdo->prepare
@@ -72,6 +82,13 @@ class PdoGsb{
             $res->bindValue('nomTheme', $nomTheme);
             $res->execute();
         }
+	/**
+	 * Fonction qui permet modifier la durée du thème
+	 *
+	 * @param $idTheme 
+	 * @param $dureeTheme
+	 *
+	 */
          public function modifierThemesDuree($idTheme,$dureeTheme)
         {
             $res = PdoGsb::$monPdo->prepare
@@ -82,7 +99,13 @@ class PdoGsb{
             $res->bindValue('dureeTheme', $dureeTheme);
             $res->execute();
         }
-        
+	/**
+	 * Fonction qui permet d'ajouter un thème
+	 *
+	 * @param $nomTheme 
+	 * @param $dureeTheme
+	 *
+	 */
         public function ajouterThemes($nomTheme,$dureeTheme)
         {
             $res = PdoGsb::$monPdo->prepare
@@ -92,7 +115,12 @@ class PdoGsb{
             $res->bindValue('dureeTheme', $dureeTheme);
             $res->execute();
         }
-        
+	/**
+	 * Fonction qui permet de supprimer un thème
+	 *
+	 * @param $idTheme 
+	 *
+	 */
         public function supprimerThemes($idTheme)
         {
             $res = PdoGsb::$monPdo->prepare
@@ -104,7 +132,13 @@ class PdoGsb{
             $res1->bindValue('idTheme', $idTheme);
             $res1->execute();
         }
-        
+	/**
+	 * Fonction qui permet d'afficher les mots
+	 *
+	 * @param $idTheme 
+	 *
+	 * @return La liste des mots
+	 */
         public function afficherMots($idTheme)
         {
             $res = PdoGsb::$monPdo->prepare("SELECT * FROM MOTS WHERE idThemeMot = :idTheme");
@@ -113,7 +147,12 @@ class PdoGsb{
             $ligne = $res->fetchAll();
             return $ligne;
         }
-
+	/**
+	 * Fonction qui permet de modifier un mots
+	 *
+	 * @param $idTheme 
+	 *
+	 */
         public function modifierMots($idMot,$contenuMot,$nbPointsMot,$dureeMot)
         {
             $res = PdoGsb::$monPdo->prepare
@@ -128,7 +167,15 @@ class PdoGsb{
             $res->bindValue('dureeMot', $dureeMot);
             $res->execute();
         }
-        
+	/**
+	 * Fonction qui permet d'ajouter un mot
+	 *
+	 * @param $contenuMot 
+	 * @param $nbPointsMot 
+	 * @param $idThemeMot 
+	 * @param $dureeMot 
+	 *
+	 */
         public function ajouterMots($contenuMot,$nbPointsMot,$idThemeMot,$dureeMot)
         {
             $res = PdoGsb::$monPdo->prepare
@@ -140,7 +187,12 @@ class PdoGsb{
             $res->bindValue('dureeMot', $dureeMot);
             $res->execute();
         }
-        
+	/**
+	 * Fonction qui permet de supprimer un mot
+	 *
+	 * @param $idMot 
+	 *
+	 */
         public function supprimerMots($idMot)
         {
             $res = PdoGsb::$monPdo->prepare
