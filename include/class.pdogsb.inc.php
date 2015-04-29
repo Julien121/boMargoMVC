@@ -55,6 +55,26 @@ class PdoGsb{
 		}
 		return PdoGsb::$monPdoGsb;  
 	}
+        
+        /**
+            * Cette fonction retourne les informations d'un user
+
+            * @param $login 
+            * @param $mdp
+            * @return l'id, le login sous la forme d'un tableau associatif 
+           */
+	public function getVisiteur($login, $mdp)
+        {
+            $res = PdoGsb::$monPdo->prepare
+            ("SELECT idGSB, nom, prenom FROM visiteur "
+             ."WHERE login = :login AND mdp = :mdp ");
+            $res->bindValue('login', $login);
+            $res->bindValue('mdp', $mdp);
+            $res->execute();
+            $Ligne = $res->fetch();
+            return $Ligne;
+	}
+        
 	/**
 	 * Fonction qui permet d'afficher thème
 	 *
