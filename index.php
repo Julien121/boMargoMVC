@@ -22,9 +22,16 @@ switch ($uc) {
         }
     case 'gestionMots': {
             include("controleurs/c_gererMots.php");
+            break;
         }
     case 'connexion': {
             include("controleurs/c_connexion.php");
+            break;
+        }
+    case 'deconnexion': {
+            deconnecter();
+            header('location:index.php');
+            break;
         }
 }
 include("vues/v_pied.php");

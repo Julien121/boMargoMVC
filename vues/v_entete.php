@@ -31,7 +31,8 @@
             </div>
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
-                    Bienvenu <?php echo $_SESSION['nom'].''.$_SESSION['prenom'];?>
+                    Bienvenu <?php echo $_SESSION['nom'].''.$_SESSION['prenom'];?>, <a href="index.php?uc=connexion">Déconnexion</a>
+                    
                 </div>
             </div>
 	</header>
