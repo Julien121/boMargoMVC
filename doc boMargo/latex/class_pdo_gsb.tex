@@ -1,11 +1,13 @@
-\hypertarget{class_pdo_gsb}{\section{Pdo\-Gsb Class Reference}
+\hypertarget{class_pdo_gsb}{\section{Référence de la classe Pdo\-Gsb}
 \label{class_pdo_gsb}\index{Pdo\-Gsb@{Pdo\-Gsb}}
 }
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_pdo_gsb_a1c6024f681d3956654622d9f28e540a2}{{\bfseries \-\_\-destruct} ()}\label{class_pdo_gsb_a1c6024f681d3956654622d9f28e540a2}
 
+\item 
+\hyperlink{class_pdo_gsb_a12cc955e88fe6ab739a2498420d82c88}{get\-Visiteur} (\$login, \$mdp)
 \item 
 \hyperlink{class_pdo_gsb_a69eca6fd14dc3603c969985aa148485e}{afficher\-Themes} ()
 \item 
@@ -25,14 +27,24 @@
 \item 
 \hyperlink{class_pdo_gsb_ac10f114c36c8ae0f328ad6ff6168d437}{supprimer\-Mots} (\$id\-Mot)
 \end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\subsection*{Fonctions membres publiques statiques}
 \begin{DoxyCompactItemize}
 \item 
 static \hyperlink{class_pdo_gsb_a37ab3ed998137aeaf4d581365520067e}{get\-Pdo\-Gsb} ()
 \end{DoxyCompactItemize}
 
 
-\subsection{Member Function Documentation}
+\subsection{Description détaillée}
+Classe d'accès aux données.
+
+Utilise les services de la classe P\-D\-O pour l'application G\-S\-B Les attributs sont tous statiques, les 4 premiers pour la connexion \$mon\-Pdo de type P\-D\-O \$mon\-Pdo\-Gsb qui contiendra l'unique instance de la classe
+
+\begin{DoxyVersion}{Version}
+1.\-0 \hyperlink{}{http\-://www.\-php.\-net/manual/fr/book.\-pdo.\-php}
+\end{DoxyVersion}
+
+
+\subsection{Documentation des fonctions membres}
 \hypertarget{class_pdo_gsb_a5880ee729b1fd37abb54c3b1c971df7c}{\index{Pdo\-Gsb@{Pdo\-Gsb}!afficher\-Mots@{afficher\-Mots}}
 \index{afficher\-Mots@{afficher\-Mots}!PdoGsb@{Pdo\-Gsb}}
 \subsubsection[{afficher\-Mots}]{\setlength{\rightskip}{0pt plus 5cm}afficher\-Mots (
@@ -43,11 +55,11 @@ static \hyperlink{class_pdo_gsb_a37ab3ed998137aeaf4d581365520067e}{get\-Pdo\-Gsb
 Fonction qui permet d'afficher les mots
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em \$id\-Theme} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 La liste des mots 
 \end{DoxyReturn}
 \hypertarget{class_pdo_gsb_a69eca6fd14dc3603c969985aa148485e}{\index{Pdo\-Gsb@{Pdo\-Gsb}!afficher\-Themes@{afficher\-Themes}}
@@ -59,7 +71,7 @@ La liste des mots
 )}}\label{class_pdo_gsb_a69eca6fd14dc3603c969985aa148485e}
 Fonction qui permet d'afficher thème
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 La liste des thèmes 
 \end{DoxyReturn}
 \hypertarget{class_pdo_gsb_a553107c9010c29bb8e015aadb6f093ef}{\index{Pdo\-Gsb@{Pdo\-Gsb}!ajouter\-Mots@{ajouter\-Mots}}
@@ -75,7 +87,7 @@ La liste des thèmes
 Fonction qui permet d'ajouter un mot
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em \$contenu\-Mot} & \\
 \hline
 {\em \$nb\-Points\-Mot} & \\
@@ -96,7 +108,7 @@ Fonction qui permet d'ajouter un mot
 Fonction qui permet d'ajouter un thème
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em \$nom\-Theme} & \\
 \hline
 {\em \$duree\-Theme} & \\
@@ -113,8 +125,28 @@ Fonction statique qui crée l'unique instance de la classe
 
 Appel \-: \$instance\-Pdo\-Gsb = \hyperlink{class_pdo_gsb_a37ab3ed998137aeaf4d581365520067e}{Pdo\-Gsb\-::get\-Pdo\-Gsb()};
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 l'unique objet de la classe \hyperlink{class_pdo_gsb}{Pdo\-Gsb} 
+\end{DoxyReturn}
+\hypertarget{class_pdo_gsb_a12cc955e88fe6ab739a2498420d82c88}{\index{Pdo\-Gsb@{Pdo\-Gsb}!get\-Visiteur@{get\-Visiteur}}
+\index{get\-Visiteur@{get\-Visiteur}!PdoGsb@{Pdo\-Gsb}}
+\subsubsection[{get\-Visiteur}]{\setlength{\rightskip}{0pt plus 5cm}get\-Visiteur (
+\begin{DoxyParamCaption}
+\item[{}]{\$login, }
+\item[{}]{\$mdp}
+\end{DoxyParamCaption}
+)}}\label{class_pdo_gsb_a12cc955e88fe6ab739a2498420d82c88}
+Cette fonction retourne les informations d'un user
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \$login} & \\
+\hline
+{\em \$mdp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+l'id, le login sous la forme d'un tableau associatif 
 \end{DoxyReturn}
 \hypertarget{class_pdo_gsb_a35d174f171da6b722e68ff84e135d1d5}{\index{Pdo\-Gsb@{Pdo\-Gsb}!modifier\-Mots@{modifier\-Mots}}
 \index{modifier\-Mots@{modifier\-Mots}!PdoGsb@{Pdo\-Gsb}}
@@ -129,7 +161,7 @@ l'unique objet de la classe \hyperlink{class_pdo_gsb}{Pdo\-Gsb}
 Fonction qui permet de modifier un mots
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em \$id\-Theme} & \\
 \hline
 \end{DoxyParams}
@@ -144,7 +176,7 @@ Fonction qui permet de modifier un mots
 Fonction qui permet modifier la durée du thème
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em \$id\-Theme} & \\
 \hline
 {\em \$duree\-Theme} & \\
@@ -161,7 +193,7 @@ Fonction qui permet modifier la durée du thème
 Fonction qui permet modifier un thème
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em \$id\-Theme} & \\
 \hline
 {\em \$nom\-Theme} & \\
@@ -177,7 +209,7 @@ Fonction qui permet modifier un thème
 Fonction qui permet de supprimer un mot
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em \$id\-Mot} & \\
 \hline
 \end{DoxyParams}
@@ -191,12 +223,12 @@ Fonction qui permet de supprimer un mot
 Fonction qui permet de supprimer un thème
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em \$id\-Theme} & \\
 \hline
 \end{DoxyParams}
 
 
-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
 \item 
 include/class.\-pdogsb.\-inc.\-php\end{DoxyCompactItemize}
