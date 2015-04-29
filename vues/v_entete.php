@@ -22,21 +22,23 @@
     <body>
         <header style="margin:20px 0 20px">
             <div class="container">
-                <div class="col-md-3 col-md-offset-1">
-                    <img src="./images/logo.png">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <img src="./images/logo.png">
+                    </div>
+                    <div class="col-md-6">
+                        <h1>LISTES DES THEMES</h1>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h1>LISTES DES THEMES</h1>
-                </div>
-            </div>
-            <br> 
-            <?php if(estConnecte()): ?>
-            <div class="row">
-                <div class="col-md-3 col-md-offset-2">
-                    Bienvenu <?php echo $_SESSION['nom'] . ' ' . $_SESSION['prenom']; ?>, <a href="index.php?uc=deconnexion">Déconnexion</a>
+                <br> 
+                <?php if (estConnecte()): ?>
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-8">
+                            Bienvenu <?php echo $_SESSION['nom'] . ' ' . $_SESSION['prenom']; ?>, <a href="index.php?uc=deconnexion">Déconnexion</a>
 
-                </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
-            <?php endif; ?>
         </header>
 
