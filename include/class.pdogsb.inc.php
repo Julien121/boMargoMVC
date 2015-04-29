@@ -16,10 +16,10 @@
  */
 
 class PdoGsb{   		
-      	private static $serveur='sqlsrv:server=localhost';
-      	private static $bdd='DataBase=MARGO';   		
-      	private static $user='sa' ;    		
-      	private static $mdp='sqlman' ;	
+      	private static $serveur='mysql:host=localhost';
+      	private static $bdd='dbname=bomargo';   		
+      	private static $user='root' ;    		
+      	private static $mdp='' ;	
         private static $monPdo;
 	private static $monPdoGsb=null;
 /**
@@ -27,8 +27,17 @@ class PdoGsb{
  * pour toutes les méthodes de la classe
  */				
 	private function __construct(){
+	try
+	{
     	PdoGsb::$monPdo = new PDO(PdoGsb::$serveur.';'.PdoGsb::$bdd, PdoGsb::$user, PdoGsb::$mdp); 
 		PdoGsb::$monPdo->query("SET CHARACTER SET utf8");
+	}
+	catch( PDOException $Exception ) 
+	{
+		// PHP Fatal Error. Second Argument Has To Be An Integer, But PDOException::getCode Returns A
+		// String.
+		throw new MyDatabaseException( $Exception->getMessage( ) , $Exception->getCode( ) );
+	}
 	}
 	public function _destruct(){
 		PdoGsb::$monPdo = null;
@@ -110,7 +119,7 @@ class PdoGsb{
         {
             $res = PdoGsb::$monPdo->prepare
                     ("INSERT INTO THEMES "
-                    . "VALUES(:nomTheme,:dureeTheme) ");
+                    . "VALUES('',:nomTheme,:dureeTheme) ");
             $res->bindValue('nomTheme', $nomTheme);
             $res->bindValue('dureeTheme', $dureeTheme);
             $res->execute();
@@ -124,11 +133,11 @@ class PdoGsb{
         public function supprimerThemes($idTheme)
         {
             $res = PdoGsb::$monPdo->prepare
-                    ("DELETE MOTS WHERE idThemeMot = :idThemeMot ");
+                    ("DELETE FROM MOTS WHERE idThemeMot = :idThemeMot ");
             $res->bindValue('idThemeMot', $idTheme);
             $res->execute();
             $res1 = PdoGsb::$monPdo->prepare
-                    ("DELETE THEMES WHERE idTheme = :idTheme ");
+                    ("DELETE FROM THEMES WHERE idTheme = :idTheme ");
             $res1->bindValue('idTheme', $idTheme);
             $res1->execute();
         }
@@ -180,7 +189,7 @@ class PdoGsb{
         {
             $res = PdoGsb::$monPdo->prepare
                     ("INSERT INTO MOTS "
-                    . "VALUES(:contenuMot,:nbPointsMot,:idThemeMot,:dureeMot) ");
+                    . "VALUES('',:contenuMot,:nbPointsMot,:idThemeMot,:dureeMot) ");
             $res->bindValue('contenuMot', $contenuMot);
             $res->bindValue('nbPointsMot', $nbPointsMot);
             $res->bindValue('idThemeMot', $idThemeMot);
@@ -196,7 +205,7 @@ class PdoGsb{
         public function supprimerMots($idMot)
         {
             $res = PdoGsb::$monPdo->prepare
-                    ("DELETE MOTS WHERE idMot = :idMot ");
+                    ("DELETE FROM MOTS WHERE idMot = :idMot ");
             $res->bindValue('idMot', $idMot);
             $res->execute();
         }
