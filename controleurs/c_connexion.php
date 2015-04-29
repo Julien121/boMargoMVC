@@ -23,8 +23,6 @@ if (!estConnecte()) {
     }
 
     include("vues/v_connexion.php");
-}
-else
-{
+} else {
     header('Location:index.php');
 }

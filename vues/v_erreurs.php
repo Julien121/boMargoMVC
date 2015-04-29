@@ -5,9 +5,8 @@
     </button>
     <ul class="list-unstyled">
         <?php
-        
         if (nbErreurs() > 0) {
-            
+
             foreach ($_POST['erreurs'] as $erreur) {
                 echo '<li>' . htmlentities($erreur) . '</li>';
             }
