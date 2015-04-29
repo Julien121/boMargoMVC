@@ -23,11 +23,16 @@
 	<header style="margin:20px 0 20px">
             <div class="container">
                     <div class="col-md-3 col-md-offset-1">
-                            <img src="./images/logo.png">
+                        <img src="./images/logo.png">
                     </div>
                     <div class="col-md-6">
                             <h1>LISTES DES THEMES</h1>
                     </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    Bienvenu <?php echo $_SESSION['nom'].''.$_SESSION['prenom'];?>
+                </div>
             </div>
 	</header>
 
