@@ -46,7 +46,7 @@
                                         <a href='index.php?modif=<?php echo $unThemes['idTheme']; ?>' class="btn btn-default btn-block col-md-6">MODIFIER</a>
                                     </div>
                                     <div class="col-md-6">
-                                        <a href='index.php?sup=<?php echo $unThemes['idTheme']; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
+                                        <a href='index.php?sup=<?php echo $unThemes['idTheme']; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez-vous vraiment supprimer ce thème ?');">SUPPRIMER</a>
                                     </div>
                                 </div>
                             </td>

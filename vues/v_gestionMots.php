@@ -22,8 +22,11 @@
                                 <td><input type="text" name="dureeMot" class="form-control" value="<?php echo $unMot['dureeMot']; ?>"> </td>
                                 <td>
                                     <div class="row">
-                                        <div class="col-md-6 col-md-offset-3">
+                                        <div class="col-md-6">
                                             <button type="submit" name="modif" class="btn btn-primary btn-block">VALIDER</button>
+                                        </div>
+                                        <div class = "col-md-6">
+                                            <button type="submit" name="annuler" class="btn btn-danger btn-block">ANNULER</button>
                                         </div>
                                     </div>
                                 </td>
@@ -40,7 +43,7 @@
                                         <a href='index.php?uc=gestionMots&modif=<?php echo $unMot['idMot']; ?>' class="btn btn-default btn-block col-md-6">MODIFIER</a>
                                     </div>
                                     <div class="col-md-6">
-                                        <a href='index.php?uc=gestionMots&sup=<?php echo $unMot['idMot']; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
+                                        <a href='index.php?uc=gestionMots&sup=<?php echo $unMot['idMot']; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez-vous vraiment supprimer ce mot ?');">SUPPRIMER</a>
                                     </div>
                                 </div>
                             </td>
